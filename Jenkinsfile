@@ -1,28 +1,23 @@
 pipeline {
-  agent {
+    agent {
         docker {
-            image 'node:18' 
+            // image 'node:18'
+            image 'node:22.11.0-alpine3.20'
         }
+
     }
-  stages {
-    stage('Checkout') {
-      steps {
-        checkout scm
-      }
-    }
-    stage('Install & Test') {
-      steps {
-        sh 'npm install'
-        sh 'npm test'
-      }
-      post {
-            success {
-                echo "Les tests sont passés avec succès."
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
             }
-            failure {
-                echo "Les tests ont échoué. Vérifiez les résultats des tests pour plus d'informations."
+        }
+        stage('Build and Test') {
+            steps {
+                    sh 'npm install'
+                    sh 'npm test'
+                }
             }
         }
     }
-  }
 }
