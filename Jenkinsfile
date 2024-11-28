@@ -4,7 +4,6 @@ pipeline {
             // image 'node:18'
             image 'node:22.11.0-alpine3.20'
         }
-
     }
     stages {
         stage('Checkout') {
@@ -17,7 +16,6 @@ pipeline {
                     sh 'npm install'
                     sh 'npm test'
                 }
-            }
         }
     }
 }
