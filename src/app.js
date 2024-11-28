@@ -1,2 +1,2 @@
 
-console.log("Hello world !§§!!!ggccgfffcfkkf")
+console.log("Hello world ffcfkkf")
